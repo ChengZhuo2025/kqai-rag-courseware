@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F4F7FC">
+  <meta name="description" content="企业私有知识库 RAG 实战：从搭建部署到回答校验。15 页离线交互课件。">
+  <title>企业私有知识库 RAG 实战 · 证据实验台</title>
+  <link rel="icon" href="assets/kqai-logo.png" type="image/png">
+  <link rel="stylesheet" href="vendor/reveal.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <a class="brand" href="#/1" aria-label="鲲穹 AI 课堂，返回封面"><img class="brand-logo" src="assets/kqai-logo.png" alt="鲲穹 AI" width="46" height="46"><span>鲲穹 AI 课堂</span></a>
+    <nav class="chapter-nav" aria-label="课程章节">
+      <button data-go="1"><span>01</span> 搭建与检索</button>
+      <button data-go="7"><span>02</span> 本机与云端</button>
+      <button data-go="9"><span>03</span> 回答校验</button>
+    </nav>
+    <div class="header-actions">
+      <button class="quiet-button" id="notes-button"><i data-lucide="notebook-pen"></i><span>讲师备注</span></button>
+      <button class="icon-button" id="tools-button" aria-label="打开演示设置"><i data-lucide="sliders-horizontal"></i></button>
+    </div>
+  </header>
+  <main class="reveal" aria-label="交互课件主舞台"><div class="slides" id="slides"></div></main>
+  <footer class="app-footer">
+    <button class="page-counter" id="directory-button" aria-label="打开15页目录"><i data-lucide="layout-grid"></i><strong id="page-number">01</strong><span>/ 15</span></button>
+    <div class="step-status"><span id="chapter-label">开场</span><span class="step-dots" id="step-dots"></span><span id="step-label">从问题开始</span></div>
+    <div class="navigation">
+      <button class="icon-button" id="pause-button" aria-label="暂停动效"><i data-lucide="pause"></i></button>
+      <button class="icon-button" id="replay-button" aria-label="重放本页"><i data-lucide="rotate-ccw"></i></button>
+      <button class="icon-button previous" id="previous-button" aria-label="上一步"><i data-lucide="arrow-left"></i></button>
+      <button class="primary-button next" id="next-button"><span>开始学习</span><i data-lucide="arrow-right"></i></button>
+    </div>
+  </footer>
+  <div class="deck-progress" aria-hidden="true"><span id="deck-progress"></span></div>
+  <dialog id="directory-dialog" class="directory-dialog" aria-labelledby="directory-title"><div class="dialog-heading"><div><p class="small-label">课程导航</p><h2 id="directory-title">一条证据，走完全过程。</h2></div><button class="icon-button" data-close aria-label="关闭目录"><i data-lucide="x"></i></button></div><div id="directory-grid" class="directory-grid"></div></dialog>
+  <dialog id="source-dialog" class="source-dialog" aria-labelledby="source-title"><div class="dialog-heading"><div><p id="source-status" class="small-label"></p><h2 id="source-title"></h2></div><button class="icon-button" data-close aria-label="关闭原文"><i data-lucide="x"></i></button></div><p class="source-filename" id="source-filename"></p><div id="source-content" class="source-content"></div><div class="source-footer"><span>全部为虚构教学模拟资料</span><a id="source-download" download>下载原文 <i data-lucide="download"></i></a></div></dialog>
+  <dialog id="tools-dialog" class="tools-dialog" aria-labelledby="tools-title"><div class="dialog-heading"><h2 id="tools-title">演示设置</h2><button class="icon-button" data-close aria-label="关闭设置"><i data-lucide="x"></i></button></div><label class="setting-row"><span><strong>减弱动态</strong><small>保留信息，停用空间运动</small></span><input id="reduced-switch" type="checkbox" role="switch"></label><button class="setting-row" id="reveal-all"><span><strong>显示本页完整结果</strong><small>跳过当前页剩余动画步骤</small></span><i data-lucide="eye"></i></button><button class="setting-row" id="fullscreen-button"><span><strong>切换全屏</strong><small>按 Esc 可退出</small></span><i data-lucide="maximize"></i></button><div class="keyboard-guide"><span><kbd>→</kbd><kbd>空格</kbd> 下一步</span><span><kbd>←</kbd> 上一步</span><span><kbd>Esc</kbd> 目录 / 关闭弹层</span></div><p class="muted">网页中的动画与预设回答为教学演示。真实问答请在 Cherry Studio 中完成。</p></dialog>
+  <dialog id="answers-dialog" class="answers-dialog" aria-labelledby="answers-title"><div class="dialog-heading"><div><p class="small-label">讲师主动揭示</p><h2 id="answers-title">参考答案与评分</h2></div><button class="icon-button" data-close aria-label="关闭参考答案"><i data-lucide="x"></i></button></div><div id="answers-content"></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div class="sr-only" id="announcer" aria-live="polite"></div>
+  <noscript>本交互课件需要启用 JavaScript。原始教学资料在“资料”目录中。</noscript>
+  <script src="vendor/reveal.js"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/lucide.min.js"></script>
+  <script src="data.js"></script>
+  <script src="state.js"></script>
+  <script src="scene.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
