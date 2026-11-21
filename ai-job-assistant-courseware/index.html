@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f7fc">
+  <meta name="description" content="AI 求职助手试听课：从简历优化到智能体开发。13 页互动课件，含分步动效。">
+  <title>AI 求职助手 · 鲲穹 AI 试听课</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="vendor/reveal.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <a class="brand" href="#/1" aria-label="鲲穹 AI 课堂，返回封面">
+      <img class="brand-logo" src="assets/kqai-logo.png" alt="鲲穹 AI" width="46" height="46">
+      <span>鲲穹 AI 课堂</span>
+    </a>
+    <nav class="chapter-nav" aria-label="课程章节">
+      <button data-go="0"><span>01</span> 看见能力</button>
+      <button data-go="3"><span>02</span> 一起动手</button>
+      <button data-go="7"><span>03</span> 看懂路径</button>
+      <button data-go="10"><span>04</span> 继续成长</button>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button" id="tools-button" aria-label="打开演示设置" title="演示设置"><i data-lucide="sliders-horizontal"></i></button>
+    </div>
+  </header>
+
+  <main class="reveal" aria-label="试听课件主舞台">
+    <div class="slides" id="slides"></div>
+  </main>
+
+  <footer class="app-footer">
+    <button class="page-counter" id="directory-button" aria-label="打开课件目录">
+      <i data-lucide="layout-grid"></i><strong id="page-number">01</strong><span id="page-total">/ 13</span>
+    </button>
+    <div class="step-status">
+      <span id="chapter-label">看见能力</span><span class="step-dots" id="step-dots" aria-hidden="true"></span><span id="step-label">AI 求职助手</span>
+    </div>
+    <div class="navigation">
+      <button class="icon-button" id="pause-button" aria-label="暂停动效" title="暂停动效"><i data-lucide="pause"></i></button>
+      <button class="icon-button" id="replay-button" aria-label="重放本页" title="重放本页"><i data-lucide="rotate-ccw"></i></button>
+      <button class="icon-button previous" id="previous-button" aria-label="上一步" title="上一步"><i data-lucide="arrow-left"></i></button>
+      <button class="primary-button next" id="next-button"><span>开始体验</span><i data-lucide="arrow-right"></i></button>
+    </div>
+  </footer>
+
+  <div class="deck-progress" aria-hidden="true"><span id="deck-progress"></span></div>
+
+  <dialog id="directory-dialog" class="directory-dialog" aria-labelledby="directory-title">
+    <div class="dialog-heading">
+      <div><p class="small-label">课程导航</p><h2 id="directory-title">从一份简历，看见 AI 能力。</h2></div>
+      <button class="icon-button" data-close aria-label="关闭目录"><i data-lucide="x"></i></button>
+    </div>
+    <div id="directory-grid" class="directory-grid"></div>
+  </dialog>
+
+  <dialog id="tools-dialog" class="tools-dialog" aria-labelledby="tools-title">
+    <div class="dialog-heading"><h2 id="tools-title">演示设置</h2><button class="icon-button" data-close aria-label="关闭设置"><i data-lucide="x"></i></button></div>
+    <label class="setting-row"><span><strong>减弱动态</strong><small>保留内容，减少位移与缩放</small></span><input id="reduced-switch" type="checkbox" role="switch"></label>
+    <button class="setting-row" id="reveal-all"><span><strong>显示本页完整内容</strong><small>跳过当前页剩余揭示步骤</small></span><i data-lucide="eye"></i></button>
+    <button class="setting-row" id="fullscreen-button"><span><strong>切换全屏</strong><small>按 Esc 可退出</small></span><i data-lucide="maximize"></i></button>
+    <button class="setting-row" id="sources-button"><span><strong>资料与演示边界</strong><small>查看样例和公司材料说明</small></span><i data-lucide="file-search"></i></button>
+    <div class="keyboard-guide"><span><kbd>→</kbd><kbd>空格</kbd> 下一步</span><span><kbd>←</kbd> 上一步</span><span><kbd>Esc</kbd> 目录 / 关闭弹层</span></div>
+  </dialog>
+
+  <dialog id="sources-dialog" class="sources-dialog" aria-labelledby="sources-title">
+    <div class="dialog-heading"><div><p class="small-label">资料说明</p><h2 id="sources-title">样例、案例与演示边界</h2></div><button class="icon-button" data-close aria-label="关闭资料说明"><i data-lucide="x"></i></button></div>
+    <div class="source-list">
+      <p><strong>求职助手互动</strong> 使用虚构候选人、岗位描述和预设结果，仅演示产品形态及输入变化，不调用模型、不上传数据。</p>
+      <p><strong>公司案例与平台</strong> 根据公司介绍和产教融合中心资料整理。正式公开前请确认项目画面展示权限和内容时效。</p>
+      <p><strong>个人信息</strong> 课堂只使用匿名教学样例。不要把学员真实简历、联系方式或其他个人资料输入第三方 AI 工具。</p>
+    </div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="announcer" class="sr-only" aria-live="polite"></div>
+  <noscript>本互动课件需要启用 JavaScript。</noscript>
+
+  <script src="vendor/reveal.js"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/lucide.min.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
